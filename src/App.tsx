@@ -4,13 +4,17 @@ import './config/styleReset.css';
 import { Provider } from 'mobx-react';
 import { Router } from 'routing/Router';
 import { GameTickStore } from 'data/GameTickStore';
+import { BeegDataStore } from 'data/BeegDataStore';
+import { CardDataStore } from 'data/CardDataStore';
 
-const gameTickStore = new GameTickStore();
+const beegDataStore = new BeegDataStore();
+const cardDataStore = new CardDataStore();
+const gameTickStore = new GameTickStore(beegDataStore, cardDataStore);
 
 export class App extends React.Component {
     public render(): JSX.Element {
         return (
-            <Provider gameTickStore={gameTickStore}>
+            <Provider gameTickStore={gameTickStore} beegDataStore={beegDataStore} cardDataStore={cardDataStore}>
                 <div style={styles.container}>
                     <Router />
                 </div>
