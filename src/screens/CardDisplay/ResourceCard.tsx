@@ -22,6 +22,7 @@ export interface ResourceCardProps {
     lastUpdatedTick: number;
     tickCountForProgress: number;
     cardDataStore?: CardDataStore;
+    icon: any;
 }
 
 @inject('cardDataStore')
@@ -51,7 +52,7 @@ export class ResourceCard extends React.Component<ResourceCardProps> {
 
         return (
             <div style={styles.container}>
-                <img src={images.cow} style={styles.cardImage} />
+                <img src={this.props.icon} style={styles.cardImage} />
                 <HorizontalProgressBar value={this.props.cycleProgress} max={this.props.cycleMax} />
 
                 <div style={{ height: 20 }} />

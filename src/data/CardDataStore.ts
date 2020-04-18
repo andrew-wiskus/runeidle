@@ -1,6 +1,7 @@
 import { observable } from 'mobx';
 import { ResourceCardProps } from 'screens/CardDisplay/ResourceCard';
 import { WorkerStore } from './WorkerStore';
+import { images } from 'images/images';
 
 export const WORKER_MULTIPLIER_FOR_PROGRESS = 1;
 export const TICK_WORKER_MULTIPLIER = 0.2;
@@ -27,21 +28,23 @@ export class CardDataStore {
             cycleMax: 120,
             lastUpdatedTick: 0,
             tickCountForProgress: 21,
+            icon: images.cow,
         },
         {
             id: '12341582asdf395072',
-            name: 'Simple Cow',
-            starCount: 3,
-            currentXP: 15235,
+            name: 'Lil Sheep',
+            starCount: 1,
+            currentXP: 0,
             workers: 0,
             cycleProgress: 0,
             unitsPerCycleMin: 1,
             unitsPerCycleMax: 10,
             xpPerCycle: 25,
-            progressPerCycle: 10,
-            cycleMax: 120,
+            progressPerCycle: 30,
+            cycleMax: 320,
             lastUpdatedTick: 0,
             tickCountForProgress: 21,
+            icon: images.sheep,
         },
     ];
 
