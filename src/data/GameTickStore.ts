@@ -4,7 +4,7 @@ import { BeegDataStore } from './BeegDataStore';
 import { CardDataStore } from './CardDataStore';
 
 const TICKS_PER_SECOND = 30;
-const TICK_INCREMENT_TO_RUN_SAVE = 100;
+const TICK_INCREMENT_TO_RUN_SAVE = 1000;
 
 export class GameTickStore {
     @observable public currentTick = 0;

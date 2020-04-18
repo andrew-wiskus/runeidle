@@ -6,15 +6,22 @@ import { Router } from 'routing/Router';
 import { GameTickStore } from 'data/GameTickStore';
 import { BeegDataStore } from 'data/BeegDataStore';
 import { CardDataStore } from 'data/CardDataStore';
+import { WorkerStore } from 'data/WorkerStore';
 
 const beegDataStore = new BeegDataStore();
-const cardDataStore = new CardDataStore();
+const workerStore = new WorkerStore();
+const cardDataStore = new CardDataStore(workerStore);
 const gameTickStore = new GameTickStore(beegDataStore, cardDataStore);
 
 export class App extends React.Component {
     public render(): JSX.Element {
         return (
-            <Provider gameTickStore={gameTickStore} beegDataStore={beegDataStore} cardDataStore={cardDataStore}>
+            <Provider
+                gameTickStore={gameTickStore}
+                beegDataStore={beegDataStore}
+                cardDataStore={cardDataStore}
+                workerStore={workerStore}
+            >
                 <div style={styles.container}>
                     <Router />
                 </div>
