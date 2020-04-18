@@ -36,8 +36,8 @@
         "semicolon": [true, "always", "ignore-bound-class-methods"],
         "switch-default": true,
         "trailing-comma": [false],
- 
-        "triple-equals": [true, "allow-null-check"],
+
+        "triple-equals": [false, "allow-null-check"],
         "typedef": [true, "parameter", "property-declaration"],
         "typedef-whitespace": [
             true,
@@ -61,5 +61,4 @@
             "check-typecast"
         ]
     }
- }
- 
+}

@@ -1,3 +1,6 @@
+import { ALL_CARDS } from './_all_cards';
+import { InventoryItem } from './InventoryStore';
+
 interface PlayerData {
     lastSavedTick: number;
 }
@@ -44,6 +47,30 @@ export class SaveData {
     }
 
     // END BEEG;
+
+    // --
+
+    // INVENTORY
+
+    public static saveInventory(item: InventoryItem) {
+        window.localStorage.setItem('count_' + item.idFromCard, item.count + '');
+    }
+
+    public static loadInventory(): { count: number; id: string }[] {
+        let savedInventory: { count: number; id: string }[] = [];
+
+        ALL_CARDS.forEach((card) => {
+            let count = getSavedNumberData('count_' + card.id);
+            if (count > 0) {
+                savedInventory.push({
+                    id: card.id,
+                    count: count,
+                });
+            }
+        });
+
+        return savedInventory;
+    }
 }
 
 function getSavedNumberData(key: string): number {
