@@ -18,6 +18,6 @@ export class HomeScreen extends React.Component<Props, State> {
     };
 
     public render(): JSX.Element {
-        return <div style={{ padding: 25 }}>Hello</div>;
+        return <h1 style={{ padding: 25, fontSize: 88 }}>Hello Ludem</h1>;
     }
 }
