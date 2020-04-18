@@ -4,6 +4,7 @@ import { GameTickStore } from 'data/GameTickStore';
 import { BeegStatus } from './BeegWindow/BeegStatus';
 import { CardDisplay } from './CardDisplay/CardDisplay';
 import { WorkerStore } from 'data/WorkerStore';
+import { Inventory } from './Inventory/Inventory';
 
 interface Props {
     gameTickStore?: GameTickStore;
@@ -36,6 +37,8 @@ export class HomeScreen extends React.Component<Props, State> {
                 </h1>
 
                 <BeegStatus />
+
+                <Inventory />
                 <h1
                     style={{ paddingLeft: 20, fontSize: 35, fontFamily: 'sans-serif', paddingTop: 15 }}
                 >{`workers available: ${this.props.workerStore!.workersAvailable}/${

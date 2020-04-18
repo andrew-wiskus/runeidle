@@ -2,15 +2,18 @@ import { observable } from 'mobx';
 import { ResourceCardProps } from 'screens/CardDisplay/ResourceCard';
 import { WorkerStore } from './WorkerStore';
 import { images } from 'images/images';
+import { InventoryStore, InventoryItem } from './InventoryStore';
 
 export const WORKER_MULTIPLIER_FOR_PROGRESS = 1;
 export const TICK_WORKER_MULTIPLIER = 0.2;
 
 export class CardDataStore {
     private workerStore: WorkerStore;
+    private inventoryStore: InventoryStore;
 
-    constructor(workerStore: WorkerStore) {
+    constructor(workerStore: WorkerStore, inventoryStore: InventoryStore) {
         this.workerStore = workerStore;
+        this.inventoryStore = inventoryStore;
     }
 
     @observable public cardDisplay: ResourceCardProps[] = [
@@ -72,6 +75,10 @@ export class CardDataStore {
                     cardUpdate.cycleProgress = leftOver;
                     cardUpdate.currentXP = cardUpdate.currentXP + card.xpPerCycle * workerMultiplier;
                     // ADD UNITS TO INVENTORY HERE!
+                    let amountToAdd =
+                        card.unitsPerCycleMin +
+                        Math.ceil(Math.random() * (card.unitsPerCycleMax - card.unitsPerCycleMin));
+                    this.inventoryStore.addItemToInventory(cardUpdate, amountToAdd);
                 } else {
                     cardUpdate.cycleProgress = cycleProgress;
                 }
