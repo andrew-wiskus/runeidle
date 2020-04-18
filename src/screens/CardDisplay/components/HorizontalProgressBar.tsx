@@ -1,5 +1,4 @@
 import React, { CSSProperties } from 'react';
-import { getDecimalIfNeeded } from 'util_functions';
 
 interface Props {
     value: number;

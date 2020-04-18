@@ -1,4 +1,4 @@
-import { observable, computed } from 'mobx';
+import { observable } from 'mobx';
 import { SaveData } from './SaveData';
 import { BeegDataStore } from './BeegDataStore';
 import { CardDataStore } from './CardDataStore';
@@ -33,7 +33,7 @@ export class GameTickStore {
     }
 
     private checkToSaveTickData = (tick: number) => {
-        if (tick % TICK_INCREMENT_TO_RUN_SAVE == 0) {
+        if (tick % TICK_INCREMENT_TO_RUN_SAVE === 0) {
             SaveData.saveTickData({
                 lastSavedTick: this.currentTick,
             });
@@ -45,7 +45,7 @@ export class GameTickStore {
             let newTick =
                 this.startTick + Math.ceil((someParam / 1000) * (TICKS_PER_SECOND + this.additionalTickAmount));
 
-            if (newTick != this.currentTick) {
+            if (newTick !== this.currentTick) {
                 this._beegDataStore.onTickUpdate(this.currentTick);
                 this._cardDataStore.onTickUpdate(this.currentTick);
             }

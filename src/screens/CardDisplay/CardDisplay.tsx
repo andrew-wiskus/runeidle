@@ -33,7 +33,7 @@ export class CardDisplay extends React.Component<Props, State> {
                 <div style={{ padding: 0, display: this.state.cardDisplayHidden ? `none` : `initial` }}>
                     <div style={{ width: 950, display: 'flex', flexWrap: 'wrap' }}>
                         {this.props.cardDataStore!.cardDisplay.map((card) => {
-                            return <ResourceCard {...card} />;
+                            return <ResourceCard key={card.id} {...card} />;
                         })}
                     </div>
                 </div>

@@ -1,7 +1,6 @@
 import React, { CSSProperties } from 'react';
-import { InventoryItem, InventoryStore } from 'data/InventoryStore';
+import { InventoryStore } from 'data/InventoryStore';
 import { inject, observer } from 'mobx-react';
-import { Star } from 'shared_components/Star';
 import { InventorySlot } from './InventorySlot';
 
 interface Props {
@@ -15,7 +14,7 @@ export class Inventory extends React.Component<Props> {
         return (
             <div style={styles.container}>
                 {this.props.inventoryStore!.inventory.map((item) => {
-                    return <InventorySlot item={item} />;
+                    return <InventorySlot key={item.idFromCard} item={item} />;
                 })}
             </div>
         );

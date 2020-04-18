@@ -2,7 +2,7 @@ import { observable } from 'mobx';
 import { ResourceCardProps } from 'screens/CardDisplay/ResourceCard';
 import { WorkerStore } from './WorkerStore';
 import { images } from 'images/images';
-import { InventoryStore, InventoryItem } from './InventoryStore';
+import { InventoryStore } from './InventoryStore';
 
 export const WORKER_MULTIPLIER_FOR_PROGRESS = 1;
 export const TICK_WORKER_MULTIPLIER = 0.2;
@@ -65,7 +65,7 @@ export class CardDataStore {
             let workerMultiplier = card.workers * WORKER_MULTIPLIER_FOR_PROGRESS;
             let cardCanUpdate =
                 newTick >= card.tickCountForProgress - TICK_WORKER_MULTIPLIER * card.workers + card.lastUpdatedTick &&
-                card.workers != 0;
+                card.workers !== 0;
 
             if (cardCanUpdate) {
                 let cycleProgress = card.cycleProgress + card.progressPerCycle;
@@ -92,7 +92,7 @@ export class CardDataStore {
         let incrementedValue = this.workerStore.requestWorkers(value);
 
         this.cardDisplay = this.cardDisplay.map((card) => {
-            if (card.id == id) {
+            if (card.id === id) {
                 let updatedCard = { ...card };
                 updatedCard.workers = updatedCard.workers + incrementedValue;
                 return updatedCard;

@@ -1,5 +1,4 @@
 import React, { CSSProperties } from 'react';
-import { images } from 'images/images';
 import { HorizontalProgressBar } from './components/HorizontalProgressBar';
 import { getLevelFromEXP, getDecimalIfNeeded } from 'util_functions';
 import { LevelXP } from 'data/_level_xp';
@@ -52,7 +51,7 @@ export class ResourceCard extends React.Component<ResourceCardProps> {
 
         return (
             <div style={styles.container}>
-                <img src={this.props.icon} style={styles.cardImage} />
+                <img src={this.props.icon} style={styles.cardImage} alt={this.props.name} />
                 <HorizontalProgressBar value={this.props.cycleProgress} max={this.props.cycleMax} />
 
                 <div style={{ height: 20 }} />

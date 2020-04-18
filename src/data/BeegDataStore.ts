@@ -21,7 +21,7 @@ export class BeegDataStore {
     }
 
     public updateHappiness(byValue: number, explicit?: number) {
-        if (explicit != undefined) {
+        if (explicit !== undefined) {
             this.happiness = explicit;
         } else {
             this.happiness = this.happiness + byValue;
@@ -33,7 +33,7 @@ export class BeegDataStore {
     }
 
     public updateHealth(byValue: number, explicit?: number) {
-        if (explicit != undefined) {
+        if (explicit !== undefined) {
             this.health = explicit;
         } else {
             this.health = this.health + byValue;

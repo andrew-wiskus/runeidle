@@ -21,7 +21,7 @@ export class BeegStatus extends React.Component<Props> {
                         icon={images.health_icon}
                     />
 
-                    <img src={images.beeg} style={styles.beegImage} />
+                    <img src={images.beeg} style={styles.beegImage} alt='the one true god' />
 
                     <VerticalStatusBar
                         value={this.props.beegDataStore!.happiness}

@@ -1,15 +1,14 @@
 import React, { CSSProperties } from 'react';
-import { InventoryItem, InventoryStore } from 'data/InventoryStore';
-import { inject, observer } from 'mobx-react';
+import { InventoryItem } from 'data/InventoryStore';
 import { Star } from 'shared_components/Star';
 
 export const InventorySlot = (props: { item: InventoryItem }) => {
     return (
         <div style={styles.container}>
-            {new Array(props.item.starCount).fill('').map((x) => {
-                return <Star />;
+            {new Array(props.item.starCount).fill('').map((x, i) => {
+                return <Star key={i} />;
             })}
-            <img src={props.item.icon} style={styles.icon} />
+            <img src={props.item.icon} style={styles.icon} alt={props.item.name} />
             <p style={styles.countText}>{props.item.count}</p>
         </div>
     );

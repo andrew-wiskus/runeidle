@@ -11,7 +11,7 @@ export const VerticalStatusBar = (props: { max: number; value: number; icon: any
                 ...props.style,
             }}
         >
-            <img src={props.icon} style={styles.icon} />
+            <img src={props.icon} style={styles.icon} alt={'icon'} />
             <div style={{ ...styles.fillBar, top: percentMissing }} />
 
             <div style={styles.valueTextContaier}>
