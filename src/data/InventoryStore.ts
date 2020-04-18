@@ -4,11 +4,8 @@ import { SaveData } from './SaveData';
 import { ALL_CARDS } from './_all_cards';
 
 export interface InventoryItem {
-    idFromCard: string;
+    card: ResourceCardProps;
     count: number;
-    starCount: number;
-    icon: any;
-    name: string;
 }
 
 export class InventoryStore {
@@ -20,21 +17,18 @@ export class InventoryStore {
             let card = ALL_CARDS.find((card) => card.id === id)!;
 
             return {
-                idFromCard: card.id,
+                card: card,
                 count: count,
-                starCount: card.starCount,
-                icon: card.icon,
-                name: card.name,
             };
         });
     }
 
     public addItemToInventory = (fromCard: ResourceCardProps, amount: number) => {
-        let hasItemInInventory = this.inventory.some((x) => x.idFromCard === fromCard.id);
+        let hasItemInInventory = this.inventory.some((x) => x.card.id === fromCard.id);
 
         if (hasItemInInventory) {
             this.inventory = this.inventory.map((item) => {
-                if (item.idFromCard === fromCard.id) {
+                if (item.card.id === fromCard.id) {
                     let updated = { ...item };
                     updated.count = updated.count + amount;
                     return updated;
@@ -46,15 +40,12 @@ export class InventoryStore {
 
         if (hasItemInInventory === false) {
             this.inventory.push({
-                idFromCard: fromCard.id,
+                card: fromCard,
                 count: amount,
-                starCount: fromCard.starCount,
-                icon: fromCard.icon,
-                name: fromCard.name,
             });
         }
 
-        let itemSaved = this.inventory.find((item) => item.idFromCard === fromCard.id)!;
+        let itemSaved = this.inventory.find((item) => item.card.id === fromCard.id)!;
         SaveData.saveInventory(itemSaved);
     };
 }

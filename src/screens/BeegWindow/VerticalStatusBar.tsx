@@ -1,8 +1,9 @@
 import React, { CSSProperties } from 'react';
+import { getDecimalIfNeeded } from 'util_functions';
 
 export const VerticalStatusBar = (props: { max: number; value: number; icon: any; style?: any }) => {
     let percentMissing = 100 - (props.value / props.max) * 100 + '%';
-    let valueText = `${props.value}/${props.max}`;
+    let valueText = `${getDecimalIfNeeded(props.value)}/${props.max}`;
 
     return (
         <div

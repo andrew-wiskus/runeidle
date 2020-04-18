@@ -8,6 +8,7 @@ interface PlayerData {
 interface BeegData {
     happiness: number;
     health: number;
+    points: number;
 }
 
 export class SaveData {
@@ -34,15 +35,18 @@ export class SaveData {
     public static saveBeegData(data: BeegData) {
         window.localStorage.setItem('beeg_happiness', data.happiness + '');
         window.localStorage.setItem('beeg_health', data.health + '');
+        window.localStorage.setItem('beeg_points', data.points + '');
     }
 
     public static loadBeegData(): BeegData {
         let happiness = getSavedNumberData('beeg_happiness');
         let health = getSavedNumberData('beeg_health');
+        let points = getSavedNumberData('beeg_points');
 
         return {
             happiness: happiness,
             health: health,
+            points: points,
         };
     }
 
@@ -53,7 +57,7 @@ export class SaveData {
     // INVENTORY
 
     public static saveInventory(item: InventoryItem) {
-        window.localStorage.setItem('count_' + item.idFromCard, item.count + '');
+        window.localStorage.setItem('count_' + item.card.id, item.count + '');
     }
 
     public static loadInventory(): { count: number; id: string }[] {

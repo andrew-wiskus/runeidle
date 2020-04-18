@@ -22,6 +22,7 @@ export interface ResourceCardProps {
     tickCountForProgress: number;
     cardDataStore?: CardDataStore;
     icon: any;
+    basePointsPerSacrafice: number;
 }
 
 @inject('cardDataStore')
@@ -87,7 +88,7 @@ const styles = {
     },
     container: {
         height: 440,
-        width: 280,
+        width: `28%`,
         border: '2px solid black',
         margin: 10,
         padding: 10,
