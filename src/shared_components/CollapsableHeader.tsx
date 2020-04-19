@@ -4,6 +4,9 @@ import { images } from 'images/images';
 interface Props {
     header: string;
     defaultShown?: boolean;
+    bgColor?: string;
+    style?: any;
+    stylesOnShow?: any;
 }
 
 interface State {
@@ -20,11 +23,18 @@ export class CollapsableHeader extends React.Component<Props, State> {
     };
 
     public render(): JSX.Element {
-        let expandedStyle = this.state.isHidden ? styles.hidden : styles.shown;
+        let expandedStyle = this.state.isHidden ? styles.hidden : { ...styles.shown, ...this.props.stylesOnShow };
 
         return (
             <div style={{}}>
-                <div style={styles.container} onClick={this.onClick}>
+                <div
+                    style={{
+                        ...styles.container,
+                        ...(this.props.bgColor ? { backgroundColor: this.props.bgColor } : {}),
+                        ...this.props.style,
+                    }}
+                    onClick={this.onClick}
+                >
                     <img style={styles.button} src={this.state.isHidden ? images.plus_button : images.minus_button}></img>
 
                     <h1 style={styles.header}>{this.props.header}</h1>

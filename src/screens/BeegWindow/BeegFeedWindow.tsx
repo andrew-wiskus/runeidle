@@ -5,40 +5,40 @@ import { CollapsableHeader } from 'shared_components/CollapsableHeader';
 
 interface Props {
     beegDataStore?: BeegDataStore;
+    style?: any;
+    stylesOnShow?: any;
 }
 
 @inject('beegDataStore')
 @observer
 export class BeegFeedWindow extends React.Component<Props> {
     public render(): JSX.Element {
-        const windowHeader = `Beeg Feed - Points: ${this.props.beegDataStore!.points}`;
+        const windowHeader = `BEEG Feed - Points: ${this.props.beegDataStore!.points}`;
         const beegPointsHeader = `BEEG POINTS: ${this.props.beegDataStore!.points}`;
         const beegDesiresHeader = `BEEG DESIRES: [ ${this.props.beegDataStore!.desires.map((x) => x.name).join(', ')} ]`;
         const beegDespisesHeader = `BEEG DESPISES: [ ${this.props.beegDataStore!.despises.map((x) => x.name).join(', ')} ]`;
 
         return (
-            <CollapsableHeader header={windowHeader}>
-                <div style={styles.container}>
-                    <div style={styles.headerText}>
-                        <h1>{beegPointsHeader}</h1>
-                        <h1>{beegDesiresHeader}</h1>
-                        <h1>{beegDespisesHeader}</h1>
-                    </div>
-
-                    <div style={styles.scrollBox}>
-                        {this.props
-                            .beegDataStore!.beegMessages.slice()
-                            .reverse()
-                            .map((message, i) => {
-                                return (
-                                    <h1 key={i} style={{ paddingBottom: 10 }}>
-                                        {message}
-                                    </h1>
-                                );
-                            })}
-                    </div>
+            <div style={styles.container}>
+                <div style={styles.headerText}>
+                    <h1>{beegPointsHeader}</h1>
+                    <h1>{beegDesiresHeader}</h1>
+                    <h1>{beegDespisesHeader}</h1>
                 </div>
-            </CollapsableHeader>
+
+                <div style={styles.scrollBox}>
+                    {this.props
+                        .beegDataStore!.beegMessages.slice()
+                        .reverse()
+                        .map((message, i) => {
+                            return (
+                                <h1 key={i} style={{ paddingBottom: 10 }}>
+                                    {message}
+                                </h1>
+                            );
+                        })}
+                </div>
+            </div>
         );
     }
 }
@@ -50,8 +50,7 @@ const styles = {
         border: '3px solid black',
         margin: 20,
         marginTop: 0,
-        width: 760,
-        borderTop: 'none',
+        width: 720,
         backgroundColor: 'white',
     } as CSSProperties,
     headerText: {

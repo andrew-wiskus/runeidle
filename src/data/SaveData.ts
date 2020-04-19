@@ -75,6 +75,21 @@ export class SaveData {
 
         return savedInventory;
     }
+
+    // END INVENTORY
+
+    // --
+
+    // CHAT
+
+    public static saveChat(data: { username: string }) {
+        window.localStorage.setItem('chat_username', data.username);
+    }
+
+    public static loadChat(): { username: string } {
+        let username = window.localStorage.getItem('chat_username') || '';
+        return { username: username };
+    }
 }
 
 function getSavedNumberData(key: string): number {

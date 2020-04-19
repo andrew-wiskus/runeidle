@@ -40,7 +40,7 @@ export class BeegStore extends React.Component<Props, State> {
 
     public render(): JSX.Element {
         return (
-            <CollapsableHeader header='Beeg Store' defaultShown={true}>
+            <CollapsableHeader header='BEEG Store' defaultShown={false}>
                 <div style={styles.container}>
                     <div style={styles.tabContainer}>
                         <div onClick={() => this.clickTab(Tab.CARD)} style={this.getTabStyle(Tab.CARD)}>

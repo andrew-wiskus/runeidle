@@ -33,7 +33,7 @@ const desireMessages = [
     `BEEG writes some cryptic language in the air... it says "uwu"`,
     'The BEEG smiles, which is odd because it has no face',
     'The BEEG shines a light from the sky, showing the city in sparkles',
-    'YUM YUM YUM yells the Beeg as he devours your gift',
+    'YUM YUM YUM yells the BEEG as he devours your gift',
     'The BEEG starts singing A Milli, A Milli.. the bass is loud as hell',
     "The BEEG starts to dance, but doesn't move",
 ];
@@ -41,7 +41,7 @@ const desireMessages = [
 export class BeegDataStore {
     @observable public health = 100;
     @observable public happiness = 100;
-    @observable public beegMessages: string[] = ['the beeg welcomes you into the new day..'];
+    @observable public beegMessages: string[] = ['the BEEG welcomes you into the new day..'];
     @observable public points: number = 0;
     @observable public desires: ResourceCardProps[] = [ALL_CARDS[0]];
     @observable public despises: ResourceCardProps[] = [ALL_CARDS[1]];
@@ -59,7 +59,7 @@ export class BeegDataStore {
     public onTickUpdate(newTick: number) {
         this.currentTick = newTick;
         if (newTick % HEALTH_LOSS_ON_TICK_COUNT == 0) {
-            this.health = this.health - HEALTH_LOST_PER_TICK;
+            this.health = Math.max(0, this.health - HEALTH_LOST_PER_TICK);
             this.saveData();
         }
     }
@@ -91,9 +91,7 @@ export class BeegDataStore {
 
     public feedBeeg(card: ResourceCardProps, amount: number) {
         // beeg points
-        this.points = Number(
-            getDecimalIfNeeded(this.points + Number(getDecimalIfNeeded(card.basePointsPerSacrafice * amount)))
-        );
+        this.points = Number(getDecimalIfNeeded(this.points + Number(getDecimalIfNeeded(card.basePointsPerSacrafice * amount))));
 
         // beeg happiness / health
         let isDesired = this.desires.some((x) => x.id === card.id);
