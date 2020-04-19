@@ -35,5 +35,6 @@ const styles = {
         marginTop: 0,
         borderTop: `none`,
         width: 760,
+        backgroundColor: 'white',
     } as CSSProperties,
 };

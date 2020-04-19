@@ -5,6 +5,7 @@ import { LevelXP } from 'data/_level_xp';
 import { CardName } from './components/CardName';
 import { WORKER_MULTIPLIER_FOR_PROGRESS, CardDataStore, TICK_WORKER_MULTIPLIER } from 'data/CardDataStore';
 import { inject, observer } from 'mobx-react';
+import { images } from 'images/images';
 
 export interface ResourceCardProps {
     id: string;
@@ -34,12 +35,8 @@ export class ResourceCard extends React.Component<ResourceCardProps> {
 
     public render(): JSX.Element {
         const workerMultipler = this.props.workers * WORKER_MULTIPLIER_FOR_PROGRESS;
-        const currentXPText = `currentXP: ${
-            this.props.currentXP + '/' + LevelXP[getLevelFromEXP(this.props.currentXP)]
-        }`;
-        const unitPerCycleText = `Units Per Cycle: ${
-            this.props.unitsPerCycleMin + ' - ' + this.props.unitsPerCycleMax
-        }`;
+        const currentXPText = `currentXP: ${this.props.currentXP + '/' + LevelXP[getLevelFromEXP(this.props.currentXP)]}`;
+        const unitPerCycleText = `Units Per Cycle: ${this.props.unitsPerCycleMin + ' - ' + this.props.unitsPerCycleMax}`;
 
         const xpPerCycleText = `XP Per Cycle: ${this.props.xpPerCycle * workerMultipler}  (${
             this.props.xpPerCycle + 'x' + workerMultipler
@@ -58,44 +55,57 @@ export class ResourceCard extends React.Component<ResourceCardProps> {
                 <div style={{ height: 20 }} />
 
                 <CardName name={this.props.name} starCount={this.props.starCount} styles={styles} />
-                <p style={styles.cardText}>{levelText}</p>
-                <p style={styles.cardText}>{currentXPText}</p>
+                {/* <p style={styles.cardText}>{levelText}</p>
+                <p style={styles.cardText}>{currentXPText}</p> */}
                 <p style={styles.cardText}>{unitPerCycleText}</p>
-                <p style={styles.cardText}>{xpPerCycleText}</p>
+                {/* <p style={styles.cardText}>{xpPerCycleText}</p> */}
                 <p style={styles.cardText}>{progressPerCycleText}</p>
                 <p style={styles.cardText}>{cycleTimeText}</p>
 
                 <div style={{ height: 20 }} />
 
-                <p style={styles.cardText}>workers: {this.props.workers}</p>
-
-                <button onClick={() => this.addWorkers(1)} style={{ marginLeft: 20 }}>
-                    +1 worker
-                </button>
-                <button onClick={() => this.addWorkers(10)}>+10 worker</button>
-                <button onClick={() => this.addWorkers(this.props.workers * -1)}>remove all</button>
+                <div style={{ display: 'flex', flexDirection: 'row', position: 'relative' }}>
+                    <p style={{ ...styles.cardText, marginRight: 5 }}>workers: {this.props.workers}</p>
+                    <div style={{ position: 'absolute', right: 0 }}>
+                        <img style={styles.button} src={images.plus_one} onClick={() => this.addWorkers(1)} />
+                        <img style={styles.button} src={images.plus_ten} onClick={() => this.addWorkers(10)} />
+                        <img
+                            style={styles.button}
+                            src={images.x_button}
+                            onClick={() => this.addWorkers(this.props.workers * -1)}
+                        />
+                    </div>
+                </div>
             </div>
         );
     }
 }
 
 const styles = {
+    button: {
+        height: 30,
+        width: 30,
+        objectFit: 'contain',
+        marginRight: 5,
+        marginTop: -10,
+        marginLeft: 5,
+    } as CSSProperties,
     cardText: {
         marginBottom: 6,
         fontFamily: 'sans-serif',
         fontSize: 16,
-        paddingLeft: 20,
+        paddingLeft: 0,
     },
     container: {
-        height: 440,
-        width: `28%`,
+        height: 270,
+        width: 220,
         border: '2px solid black',
-        margin: 10,
+        margin: 8,
         padding: 10,
     },
     cardImage: {
-        width: 260,
-        height: 150,
+        width: `100%`,
+        height: 75,
         objectFit: 'contain',
         marginBottom: 10,
     } as CSSProperties,

@@ -6,6 +6,7 @@ import { CardDisplay } from './CardDisplay/CardDisplay';
 import { WorkerStore } from 'data/WorkerStore';
 import { Inventory } from './Inventory/Inventory';
 import { BeegFeedWindow } from './BeegWindow/BeegFeedWindow';
+import { BeegStore } from './BeegStore/BeegStore';
 
 interface Props {
     gameTickStore?: GameTickStore;
@@ -38,6 +39,7 @@ export class HomeScreen extends React.Component<Props, State> {
                 </h1>
 
                 <BeegStatus />
+                <BeegStore />
                 <BeegFeedWindow />
                 <Inventory />
                 <CardDisplay />

@@ -45,6 +45,7 @@ const styles = {
         width: 800,
         border: '3px solid black',
         borderTop: 'none',
+        backgroundColor: 'white',
     },
     beegImage: {
         width: 400,

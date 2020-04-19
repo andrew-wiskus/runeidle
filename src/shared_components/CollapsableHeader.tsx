@@ -3,6 +3,7 @@ import { images } from 'images/images';
 
 interface Props {
     header: string;
+    defaultShown?: boolean;
 }
 
 interface State {
@@ -11,7 +12,7 @@ interface State {
 
 export class CollapsableHeader extends React.Component<Props, State> {
     public state: State = {
-        isHidden: true,
+        isHidden: this.props.defaultShown ? false : true,
     };
 
     private onClick = () => {
@@ -24,10 +25,7 @@ export class CollapsableHeader extends React.Component<Props, State> {
         return (
             <div style={{}}>
                 <div style={styles.container} onClick={this.onClick}>
-                    <img
-                        style={styles.button}
-                        src={this.state.isHidden ? images.plus_button : images.minus_button}
-                    ></img>
+                    <img style={styles.button} src={this.state.isHidden ? images.plus_button : images.minus_button}></img>
 
                     <h1 style={styles.header}>{this.props.header}</h1>
                 </div>
@@ -56,6 +54,7 @@ const styles = {
         backgroundColor: 'white',
         flexDirection: 'row',
         marginTop: 20,
+        cursor: 'pointer',
     } as CSSProperties,
     button: {
         height: 35,

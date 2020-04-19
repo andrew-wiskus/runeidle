@@ -52,6 +52,7 @@ const styles = {
         marginTop: 0,
         width: 760,
         borderTop: 'none',
+        backgroundColor: 'white',
     } as CSSProperties,
     headerText: {
         padding: 20,

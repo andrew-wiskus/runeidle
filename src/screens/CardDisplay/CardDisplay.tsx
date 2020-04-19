@@ -10,22 +10,14 @@ interface Props {
     workerStore?: WorkerStore;
 }
 
-interface State {
-    cardDisplayHidden: boolean;
-}
-
 @inject('cardDataStore', 'workerStore')
 @observer
-export class CardDisplay extends React.Component<Props, State> {
-    public state: State = {
-        cardDisplayHidden: false,
-    };
-
+export class CardDisplay extends React.Component<Props> {
     public render(): JSX.Element {
         const workerText = `workers available: ${this.props.workerStore!.workersAvailable}/${this.props.workerStore!.maxWorkers}`;
 
         return (
-            <CollapsableHeader header='Cards'>
+            <CollapsableHeader header='Cards' defaultShown={false}>
                 <div style={styles.container}>
                     <h1 style={styles.workerText}>{workerText}</h1>
 
@@ -45,11 +37,12 @@ export class CardDisplay extends React.Component<Props, State> {
 const styles = {
     container: {
         padding: 10,
-        width: 760,
+        width: 780,
         border: `3px solid black`,
         borderTop: `none`,
         margin: 20,
         marginTop: 0,
+        backgroundColor: 'white',
     } as CSSProperties,
     workerText: {
         paddingLeft: 20,

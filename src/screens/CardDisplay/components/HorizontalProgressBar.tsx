@@ -23,7 +23,7 @@ const styles = {
     container: {
         width: `100%`,
         position: 'relative',
-        height: 40,
+        height: 30,
         border: '2px solid black',
     } as CSSProperties,
     bar: {
@@ -35,7 +35,7 @@ const styles = {
     } as CSSProperties,
     progressValue: {
         position: 'absolute',
-        top: 10,
+        top: 4,
         left: 10,
         bottom: 0,
         right: 0,
@@ -45,7 +45,7 @@ const styles = {
     } as CSSProperties,
     maxValue: {
         position: 'absolute',
-        top: 10,
+        top: 4,
         left: 0,
         bottom: 0,
         right: 10,

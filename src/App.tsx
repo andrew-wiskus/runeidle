@@ -35,7 +35,7 @@ export class App extends React.Component {
 
 const styles: CssStyleSheet = {
     container: {
-        backgroundColor: 'white',
+        backgroundColor: '#ecece9',
         height: `100vh`,
         width: `100vw`,
     },
