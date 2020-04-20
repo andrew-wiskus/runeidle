@@ -9,12 +9,14 @@ import { CardDataStore } from 'data/CardDataStore';
 import { WorkerStore } from 'data/WorkerStore';
 import { InventoryStore } from 'data/InventoryStore';
 import { ChatStore } from 'data/ChatStore';
+import { SkillStore } from 'data/SkillStore';
 
 const beegDataStore = new BeegDataStore();
 const workerStore = new WorkerStore();
 const inventoryStore = new InventoryStore();
 const chatStore = new ChatStore();
-const cardDataStore = new CardDataStore(workerStore, inventoryStore);
+const skillStore = new SkillStore();
+const cardDataStore = new CardDataStore(workerStore, inventoryStore, skillStore);
 const gameTickStore = new GameTickStore(beegDataStore, cardDataStore);
 
 export class App extends React.Component {
@@ -27,6 +29,7 @@ export class App extends React.Component {
                 workerStore={workerStore}
                 inventoryStore={inventoryStore}
                 chatStore={chatStore}
+                skillStore={skillStore}
             >
                 <div style={styles.container}>
                     <Router />

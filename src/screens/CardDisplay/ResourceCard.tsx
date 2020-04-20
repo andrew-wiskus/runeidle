@@ -7,6 +7,7 @@ import { WORKER_MULTIPLIER_FOR_PROGRESS, CardDataStore, TICK_WORKER_MULTIPLIER }
 import { inject, observer } from 'mobx-react';
 import { images } from 'images/images';
 import { ItemClass } from 'data/_all_cards';
+import { SkillStore } from 'data/SkillStore';
 
 export interface ResourceCardProps {
     id: string;
@@ -29,9 +30,13 @@ export interface ResourceCardProps {
     levelRequired: number;
 }
 
-@inject('cardDataStore')
+interface Props extends ResourceCardProps {
+    skillStore?: SkillStore;
+}
+
+@inject('cardDataStore', 'skillStore')
 @observer
-export class ResourceCard extends React.Component<ResourceCardProps> {
+export class ResourceCard extends React.Component<Props> {
     private addWorkers = (byValue: number) => {
         this.props.cardDataStore!.addWorkersToCard(this.props.id, byValue);
     };
@@ -49,7 +54,7 @@ export class ResourceCard extends React.Component<ResourceCardProps> {
         )}t : (${this.props.tickCountForProgress}t - ${getDecimalIfNeeded(TICK_WORKER_MULTIPLIER * this.props.workers)})`;
         const levelText = `level: ${getLevelFromEXP(this.props.currentXP)}`;
 
-        let skillLevel = 1;
+        let skillLevel = this.props.skillStore!.getlevelForSkill(this.props.itemClass);
 
         return (
             <div style={styles.container}>

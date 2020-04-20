@@ -37,4 +37,8 @@ export class FirebaseService {
             callback(snap.val());
         });
     };
+
+    public static saveEmail = (email: string) => {
+        firebase.database().ref().child('email').push({ email: email });
+    };
 }
