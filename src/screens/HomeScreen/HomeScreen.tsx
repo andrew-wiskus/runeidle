@@ -6,6 +6,7 @@ import { images } from 'images/images';
 import { SkillTabButton } from './components/SkillTabButton';
 import { InventoryPanel } from 'screens/Inventory/InventoryPanel';
 import { Chat } from 'screens/Chat/Chat';
+import { ProductionPanel } from 'screens/ProductionPanel/ProductionPanel';
 
 interface Props {
     gameTickStore?: GameTickStore;
@@ -24,24 +25,10 @@ export class HomeScreen extends React.Component<Props, State> {
             <div style={styles.windowContainer}>
                 <div style={styles.gameContainer}>
                     <div style={styles.leftPanelContainer}>
-                        <div style={styles.hudContainer}>// important numbers</div>
+                        <HUDPanel />
                         <InventoryPanel />
                     </div>
-
-                    <div style={styles.skillTabButtonRow}>
-                        <SkillTabButton onClick={() => {}} icon={images.tree.mago_tree} />
-                        <SkillTabButton onClick={() => {}} icon={images.ore.mithril_ore} />
-                        <SkillTabButton onClick={() => {}} icon={images.fish.flat_fish} />
-                        <SkillTabButton onClick={() => {}} icon={images.farming.cotton} />
-                        <SkillTabButton onClick={() => {}} icon={images.farming.cow} />
-                        <SkillTabButton onClick={() => {}} icon={images.herbs.ferralfew} />
-                        <SkillTabButton onClick={() => {}} icon={images.rune.sky_rune} />
-                        <SkillTabButton onClick={() => {}} icon={images.gem.diamo} />
-                        <SkillTabButton onClick={() => {}} icon={images.lock} isLocked={true} />
-                        <SkillTabButton onClick={() => {}} icon={images.lock} isLocked={true} />
-                        <SkillTabButton onClick={() => {}} icon={images.lock} isLocked={true} />
-                        <SkillTabButton onClick={() => {}} icon={images.lock} isLocked={true} />
-                    </div>
+                    <ProductionPanel />
                 </div>
 
                 <Chat />
@@ -67,7 +54,7 @@ const styles = {
         flexDirection: 'row',
     } as CSSProperties,
     leftPanelContainer: {
-        width: 220,
+        minWidth: 220,
         height: `100%`,
         borderRight: '3px solid black',
         display: 'flex',
@@ -78,14 +65,59 @@ const styles = {
         width: `100%`,
         borderBottom: '3px solid black',
         backgroundColor: 'white',
-    } as CSSProperties,
-    skillTabButtonRow: {
-        display: 'flex',
-        flexDirection: 'row',
-        height: 50,
-        borderBottom: '3px solid black',
-        padding: 0,
-        backgroundColor: 'black',
-        flex: 1,
+        padding: 10,
     } as CSSProperties,
 };
+
+@inject('workerStore')
+@observer
+export class HUDPanel extends React.Component<{ workerStore?: WorkerStore }> {
+    public render(): JSX.Element {
+        return (
+            <div style={styles.hudContainer}>
+                <h1 style={{ fontSize: 22, marginTop: 10, marginBottom: 20 }}>
+                    Workers: {this.props.workerStore!.workersAvailable}/{this.props.workerStore!.maxWorkers}
+                </h1>
+
+                <div
+                    onClick={() => alert('coming soon :) promise (written on 4/20/2020)')}
+                    className='hover-light-grey'
+                    style={{ height: 40, width: `100%`, border: '3px solid black', borderRadius: 6, paddingTop: 7 }}
+                >
+                    <h1
+                        className='hover-bold'
+                        style={{ fontSize: 22, fontWeight: 'lighter', textAlign: 'center', width: `100%` }}
+                    >
+                        CRAFT
+                    </h1>
+                </div>
+
+                <div
+                    onClick={() => alert('coming soon :) promise (written on 4/20/2020)')}
+                    className='hover-light-grey'
+                    style={{ height: 40, width: `100%`, marginTop: 5, border: '3px solid black', borderRadius: 6, paddingTop: 7 }}
+                >
+                    <h1
+                        className='hover-bold'
+                        style={{ fontSize: 22, fontWeight: 'lighter', textAlign: 'center', width: `100%` }}
+                    >
+                        FIGHT
+                    </h1>
+                </div>
+
+                <div
+                    onClick={() => alert('coming soon :) promise (written on 4/20/2020)')}
+                    className='hover-light-grey'
+                    style={{ height: 40, width: `100%`, marginTop: 5, border: '3px solid black', borderRadius: 6, paddingTop: 7 }}
+                >
+                    <h1
+                        className='hover-bold'
+                        style={{ fontSize: 22, fontWeight: 'lighter', textAlign: 'center', width: `100%` }}
+                    >
+                        TRADE
+                    </h1>
+                </div>
+            </div>
+        );
+    }
+}

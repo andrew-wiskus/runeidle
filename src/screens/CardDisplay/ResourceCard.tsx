@@ -15,6 +15,7 @@ export interface ResourceCardProps {
     starCount: number;
     currentXP: number;
     workers: number;
+    maxWorkers: number;
     unitsPerCycleMin: number;
     unitsPerCycleMax: number;
     xpPerCycle: number;
@@ -129,8 +130,8 @@ const styles = {
         paddingLeft: 0,
     },
     container: {
-        height: 270,
-        width: 220,
+        height: 150,
+        width: 100,
         border: '2px solid black',
         margin: 8,
         padding: 10,

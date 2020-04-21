@@ -66,6 +66,34 @@ export class SkillStore {
         }
     }
 
+    public getCurrentXPForSkill(type: ItemClass) {
+        switch (type) {
+            case ItemClass.FARMING:
+                return this.farmingXP;
+
+            case ItemClass.FARM_ANIMAL:
+                return this.farmAnimalXP;
+
+            case ItemClass.HERB:
+                return this.herbXP;
+
+            case ItemClass.GEM:
+                return this.gemXP;
+
+            case ItemClass.FISH:
+                return this.fishXP;
+
+            case ItemClass.TREE:
+                return this.woodXP;
+
+            case ItemClass.ORE:
+                return this.oreXP;
+
+            case ItemClass.RUNE:
+                return this.runeXP;
+        }
+    }
+
     public addXP(type: ItemClass, xp: number) {
         switch (type) {
             case ItemClass.FARMING:

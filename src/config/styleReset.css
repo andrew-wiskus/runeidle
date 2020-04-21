@@ -172,6 +172,7 @@ h3,
 h4,
 h5 {
     font-family: Arial, Helvetica, sans-serif;
+    color: #333333;
 }
 
 * {
@@ -179,7 +180,12 @@ h5 {
 }
 
 .hover-light-grey:hover {
-    background-color: #00ddff44 !important;
+    background-color: #ffd5f2 !important;
+    cursor: pointer;
+}
+
+.hover-bold:hover {
+    font-weight: bolder !important;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

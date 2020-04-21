@@ -33,7 +33,7 @@ export const ChatLog = (props: {
             >
                 {props.messages.map((message, index) => {
                     return (
-                        <div style={{ display: 'flex', flexDirection: 'row' }}>
+                        <div key={index} style={{ display: 'flex', flexDirection: 'row' }}>
                             <p style={{ paddingTop: 1 }}>{message.timestamp}</p>
                             <h1
                                 key={index}

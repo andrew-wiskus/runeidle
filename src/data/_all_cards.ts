@@ -30,6 +30,7 @@ const cotton = {
     levelRequired: 10,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -51,6 +52,7 @@ const hemp = {
     levelRequired: 40,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -72,6 +74,7 @@ const wheat = {
     levelRequired: 1,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -97,6 +100,7 @@ const bluchoo = {
     levelRequired: 10,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -118,6 +122,7 @@ const chamo = {
     levelRequired: 22,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -139,6 +144,7 @@ const echina = {
     levelRequired: 36,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -160,6 +166,7 @@ const ferralfew = {
     levelRequired: 67,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -181,6 +188,7 @@ const garlo = {
     levelRequired: 84,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -202,6 +210,7 @@ const ginko = {
     levelRequired: 92,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -223,6 +232,7 @@ const litenseal = {
     levelRequired: 1,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -244,6 +254,7 @@ const matis = {
     levelRequired: 53,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -265,6 +276,7 @@ const pawsel = {
     levelRequired: 76,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -286,6 +298,7 @@ const vargo = {
     levelRequired: 21,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -308,6 +321,7 @@ const cow = {
     levelRequired: 10,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -329,6 +343,7 @@ const chicken = {
     levelRequired: 1,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -350,6 +365,7 @@ const dwarf_serpent = {
     levelRequired: 80,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -371,6 +387,7 @@ const dwarf_hydra = {
     levelRequired: 90,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -392,6 +409,7 @@ const dwarf_drake = {
     levelRequired: 70,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -413,6 +431,7 @@ const jackalope = {
     levelRequired: 45,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -434,6 +453,7 @@ const liger = {
     levelRequired: 65,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -455,6 +475,7 @@ const lizard = {
     levelRequired: 20,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -476,6 +497,7 @@ const sheep = {
     levelRequired: 25,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -497,6 +519,7 @@ const terror_birds = {
     levelRequired: 35,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -518,6 +541,7 @@ const unicorn = {
     levelRequired: 52,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -541,6 +565,7 @@ const diamo = {
     levelRequired: 92,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -562,6 +587,7 @@ const egstar = {
     levelRequired: 27,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -583,6 +609,7 @@ const gopal = {
     levelRequired: 1,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -604,6 +631,7 @@ const tristan = {
     levelRequired: 22,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -625,6 +653,7 @@ const peri = {
     levelRequired: 67,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -646,6 +675,7 @@ const amer = {
     levelRequired: 87,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -667,6 +697,7 @@ const opali = {
     levelRequired: 17,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -694,6 +725,7 @@ const angler_fish = {
     levelRequired: 80,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -715,6 +747,7 @@ const baby_fish = {
     levelRequired: 1,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -736,6 +769,7 @@ const balooga_fish = {
     levelRequired: 40,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -757,6 +791,7 @@ const big_fin_fish = {
     levelRequired: 56,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -778,6 +813,7 @@ const boyo_fish = {
     levelRequired: 14,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -799,6 +835,7 @@ const dolshark_fish = {
     levelRequired: 29,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -820,6 +857,7 @@ const flat_fish = {
     levelRequired: 8,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -841,6 +879,7 @@ const long_tail_fish = {
     levelRequired: 62,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -862,6 +901,7 @@ const simple_fish = {
     levelRequired: 18,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -883,6 +923,7 @@ const stick_fish = {
     levelRequired: 43,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -904,6 +945,7 @@ const swordy_fish = {
     levelRequired: 51,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -927,6 +969,7 @@ const anchie_tree = {
     levelRequired: 80,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -948,6 +991,7 @@ const bush_tree = {
     levelRequired: 1,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -969,6 +1013,7 @@ const mago_tree = {
     levelRequired: 40,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -990,6 +1035,7 @@ const mysto_tree = {
     levelRequired: 30,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -1011,6 +1057,7 @@ const oak_tree = {
     levelRequired: 20,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -1032,6 +1079,7 @@ const saboyo_tree = {
     levelRequired: 90,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -1055,6 +1103,7 @@ const adamantite_ore = {
     levelRequired: 50,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -1076,6 +1125,7 @@ const coal_ore = {
     levelRequired: 20,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -1097,6 +1147,7 @@ const copper_ore = {
     levelRequired: 1,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -1118,6 +1169,7 @@ const gold_ore = {
     levelRequired: 60,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -1139,6 +1191,7 @@ const hell_rock_ore = {
     levelRequired: 90,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -1160,6 +1213,7 @@ const iron_ore = {
     levelRequired: 10,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -1181,6 +1235,7 @@ const lead_ore = {
     levelRequired: 40,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -1202,6 +1257,7 @@ const mithril_ore = {
     levelRequired: 35,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -1223,6 +1279,7 @@ const mythic_ore = {
     levelRequired: 70,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -1244,6 +1301,7 @@ const platinum_ore = {
     levelRequired: 60,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -1265,6 +1323,7 @@ const silver_ore = {
     levelRequired: 35,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -1286,6 +1345,7 @@ const tin_ore = {
     levelRequired: 1,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -1307,6 +1367,7 @@ const fire_rune = {
     levelRequired: 1,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -1328,6 +1389,7 @@ const fusion_rune = {
     levelRequired: 80,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -1349,6 +1411,7 @@ const life_rune = {
     levelRequired: 40,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -1370,6 +1433,7 @@ const mana_rune = {
     levelRequired: 20,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -1391,6 +1455,7 @@ const sand_rune = {
     levelRequired: 15,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -1412,6 +1477,7 @@ const sky_rune = {
     levelRequired: 40,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -1433,6 +1499,7 @@ const stone_rune = {
     levelRequired: 20,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -1454,6 +1521,7 @@ const water_rune = {
     levelRequired: 30,
 
     tickCountForProgress: 21,
+    maxWorkers: 10,
     progressPerCycle: 27,
     cycleMax: 120,
 
@@ -1467,6 +1535,7 @@ const water_rune = {
 };
 
 export const ALL_CARDS: ResourceCardProps[] = [
+    cotton,
     wheat,
     unicorn,
     terror_birds,
