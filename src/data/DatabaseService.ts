@@ -14,27 +14,30 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+export interface FirebaseChatMessage {
+    message: string;
+    userName: string;
+    timestamp: string;
+}
+
 export class FirebaseService {
     // create SPAM filter here
 
     public static sendChatMessage = (message: string, userName: string) => {
         let timestamp = `[` + moment().utc().format('HH:mm') + `] `;
 
-        firebase
-            .database()
-            .ref()
-            .child('chatLog')
-            .push({
-                message: message,
-                userName: timestamp + userName,
-            });
+        firebase.database().ref().child('chatLog').push({
+            message: message,
+            userName: userName,
+            timestamp: timestamp,
+        });
     };
 
-    public static listenForChatMessage = (callback: (message: string) => void) => {
+    public static listenForChatMessage = (callback: (message: FirebaseChatMessage) => void) => {
         let ref = firebase.database().ref().child('chatLog').limitToLast(5);
 
         ref.on('child_added', (snap) => {
-            callback(snap.val());
+            console.log(callback(snap.val()));
         });
     };
 

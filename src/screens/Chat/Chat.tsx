@@ -52,13 +52,12 @@ export class Chat extends React.Component<Props, State> {
 
     public render(): JSX.Element {
         return (
-            <CollapsableHeader header={'Chat'} defaultShown={false}>
+            <>
                 {this.props.chatStore!.userName == '' ? (
                     <div
                         style={{
-                            width: 760,
+                            width: 800,
                             padding: 20,
-                            margin: 20,
                             marginTop: 0,
                             border: '3px solid black',
                             borderTop: 'none',
@@ -90,7 +89,7 @@ export class Chat extends React.Component<Props, State> {
                         messages={this.props.chatStore!.messages.slice().reverse()}
                     />
                 )}
-            </CollapsableHeader>
+            </>
         );
     }
 }

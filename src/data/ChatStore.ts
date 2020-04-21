@@ -4,12 +4,16 @@ import { SaveData } from './SaveData';
 import moment from 'moment';
 
 export class ChatStore {
-    @observable public messages: string[] = [];
+    @observable public messages: { message: string; userName: string; timestamp: string }[] = [];
     @observable public userName: string = '';
 
     private startChatListener(overrideName: boolean) {
         const onAddedMessage = (message: any) => {
-            this.messages.push(message.userName + ': ' + message.message);
+            this.messages.push({
+                userName: message.userName,
+                message: message.message,
+                timestamp: message.timestamp,
+            });
         };
 
         when(

@@ -5,6 +5,7 @@ import { WorkerStore } from 'data/WorkerStore';
 import { images } from 'images/images';
 import { SkillTabButton } from './components/SkillTabButton';
 import { InventoryPanel } from 'screens/Inventory/InventoryPanel';
+import { Chat } from 'screens/Chat/Chat';
 
 interface Props {
     gameTickStore?: GameTickStore;
@@ -42,6 +43,8 @@ export class HomeScreen extends React.Component<Props, State> {
                         <SkillTabButton onClick={() => {}} icon={images.lock} isLocked={true} />
                     </div>
                 </div>
+
+                <Chat />
             </div>
         );
     }
@@ -49,10 +52,11 @@ export class HomeScreen extends React.Component<Props, State> {
 
 const styles = {
     windowContainer: {
-        justifyContent: 'center',
+        alignItems: 'center',
         paddingTop: 50,
         display: 'flex',
         height: `100vh`,
+        flexDirection: 'column',
     } as CSSProperties,
     gameContainer: {
         width: 800,
