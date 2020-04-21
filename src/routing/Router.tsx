@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { HomeScreen } from 'screens/HomeScreen';
+import { HomeScreen } from 'screens/HomeScreen/HomeScreen';
 
 interface Props {}
 

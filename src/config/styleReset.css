@@ -173,3 +173,11 @@ h4,
 h5 {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+* {
+    box-sizing: border-box;
+}
+
+.hover-light-grey:hover {
+    background-color: #00ddff44 !important;
+}

@@ -9,14 +9,14 @@ const MECHANICAL_PROPS = {
 };
 
 export enum ItemClass {
+    TREE,
+    ORE,
+    FISH,
     FARMING,
     FARM_ANIMAL,
     HERB,
-    GEM,
-    FISH,
-    TREE,
-    ORE,
     RUNE,
+    GEM,
 }
 
 // FARMING --

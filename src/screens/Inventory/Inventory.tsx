@@ -13,13 +13,11 @@ interface Props {
 export class Inventory extends React.Component<Props> {
     public render(): JSX.Element {
         return (
-            <CollapsableHeader header='Inventory'>
-                <div style={styles.container}>
-                    {this.props.inventoryStore!.inventory.map((item) => {
-                        return <InventorySlot key={item.card.id} item={item} />;
-                    })}
-                </div>
-            </CollapsableHeader>
+            <div style={styles.container}>
+                {this.props.inventoryStore!.inventory.map((item) => {
+                    return <InventorySlot key={item.card.id} item={item} />;
+                })}
+            </div>
         );
     }
 }
