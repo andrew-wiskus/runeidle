@@ -90,6 +90,13 @@ const sky_rune = require('./gathering/sky_rune.png');
 const stone_rune = require('./gathering/stone_rune.png');
 const water_rune = require('./gathering/water_rune.png');
 
+const icon_combat = require('./icons/icon_combat.png');
+const icon_craft = require('./icons/icon_craft.png');
+const icon_explore = require('./icons/icon_explore.png');
+const icon_gather = require('./icons/icon_gather.png');
+const icon_settings = require('./icons/icon_settings.png');
+const icon_store = require('./icons/icon_store.png');
+
 export const images = {
     beeg: beeg,
     happy_icon,
@@ -100,6 +107,15 @@ export const images = {
     plus_ten,
     x_button,
     lock,
+
+    icons: {
+        icon_combat,
+        icon_craft,
+        icon_explore,
+        icon_gather,
+        icon_settings,
+        icon_store,
+    },
 
     herbs: {
         bluchoo,

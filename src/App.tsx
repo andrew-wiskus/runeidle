@@ -10,6 +10,7 @@ import { WorkerStore } from 'data/WorkerStore';
 import { InventoryStore } from 'data/InventoryStore';
 import { ChatStore } from 'data/ChatStore';
 import { SkillStore } from 'data/SkillStore';
+import { WindowStore } from 'data/WindowStore';
 
 const beegDataStore = new BeegDataStore();
 const workerStore = new WorkerStore();
@@ -18,6 +19,7 @@ const chatStore = new ChatStore();
 const skillStore = new SkillStore();
 const cardDataStore = new CardDataStore(workerStore, inventoryStore, skillStore);
 const gameTickStore = new GameTickStore(beegDataStore, cardDataStore);
+const windowStore = new WindowStore();
 
 export class App extends React.Component {
     public render(): JSX.Element {
@@ -30,6 +32,7 @@ export class App extends React.Component {
                 inventoryStore={inventoryStore}
                 chatStore={chatStore}
                 skillStore={skillStore}
+                windowStore={windowStore}
             >
                 <div style={styles.container}>
                     <Router />

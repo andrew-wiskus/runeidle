@@ -30,6 +30,27 @@ export class ProductionPanel extends React.Component<Props, State> {
         this.setState({ activeTab: itemClass });
     };
 
+    private getHeaderForSkill = (itemClass: ItemClass) => {
+        switch (itemClass) {
+            case ItemClass.FARMING:
+                return 'Crop Farming';
+            case ItemClass.FARM_ANIMAL:
+                return 'Animal Farming';
+            case ItemClass.HERB:
+                return 'Herb Gather';
+            case ItemClass.GEM:
+                return 'Gem Mining';
+            case ItemClass.FISH:
+                return 'Fishing';
+            case ItemClass.TREE:
+                return 'Woodcutting';
+            case ItemClass.ORE:
+                return 'Mining';
+            case ItemClass.RUNE:
+                return 'Runecrafting';
+        }
+    };
+
     public render(): JSX.Element {
         let productionCards = this.props.cardDataStore!.cardDisplay.filter((item) => item.itemClass == this.state.activeTab);
 
@@ -134,7 +155,9 @@ export class ProductionPanel extends React.Component<Props, State> {
                         </div>
                     </div>
                     <div style={{ height: 120 }}>
-                        <h1 style={{ fontSize: 25, fontWeight: 'lighter', marginBottom: 15 }}>Herb Gathering </h1>
+                        <h1 style={{ fontSize: 25, fontWeight: 'lighter', marginBottom: 15 }}>
+                            {this.getHeaderForSkill(this.state.activeTab)}
+                        </h1>
                         <h1 style={{ fontSize: 13, fontWeight: 'lighter', marginBottom: 2 }}>
                             some stat goes here about skill 192p
                         </h1>
