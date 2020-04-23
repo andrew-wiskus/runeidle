@@ -59,7 +59,8 @@ export class CombatStore {
             // can't kill those which are already dead.
             return;
         }
-        let damage = 20;
+
+        let damage = 1 + Math.floor(Math.random() * 20);
         this.attackAnimationCallback(damage);
 
         this.currentMonster.currentHealth = Math.max(0, this.currentMonster.currentHealth - damage);
