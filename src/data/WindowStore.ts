@@ -10,7 +10,7 @@ export enum WindowType {
 }
 
 export class WindowStore {
-    @observable public activeWindow: WindowType = WindowType.GATHER;
+    @observable public activeWindow: WindowType = WindowType.COMBAT;
 
     public setWindow(type: WindowType) {
         this.activeWindow = type;

@@ -2,6 +2,7 @@ import { observable } from 'mobx';
 import { SaveData } from './SaveData';
 import { BeegDataStore } from './BeegDataStore';
 import { CardDataStore } from './CardDataStore';
+import { CombatStore } from './CombatStore';
 
 const TICKS_PER_SECOND = 30;
 const TICK_INCREMENT_TO_RUN_SAVE = 1000;
@@ -11,6 +12,7 @@ export class GameTickStore {
     @observable public timeLeft = 0;
     @observable private _beegDataStore: BeegDataStore;
     @observable private _cardDataStore: CardDataStore;
+    @observable private _combatStore: CombatStore;
 
     private additionalTickAmount = 0;
     private startTick = 0;
@@ -19,15 +21,17 @@ export class GameTickStore {
         this.additionalTickAmount += amount;
     }
 
-    public constructor(beegDataStore: BeegDataStore, cardDataStore: CardDataStore) {
+    public constructor(beegDataStore: BeegDataStore, cardDataStore: CardDataStore, combatStore: CombatStore) {
         let savedTickData = SaveData.loadTickData();
         this.startTick = savedTickData.lastSavedTick;
 
+        this._combatStore = combatStore;
         this._beegDataStore = beegDataStore;
         this._cardDataStore = cardDataStore;
 
         this._beegDataStore.setStartTick(this.startTick);
         this._cardDataStore.setStartTick(this.startTick);
+        this._combatStore.setStartTick(this.startTick);
 
         this.startGameTickLoop();
     }
@@ -42,12 +46,12 @@ export class GameTickStore {
 
     private startGameTickLoop() {
         const callback = (someParam: number) => {
-            let newTick =
-                this.startTick + Math.ceil((someParam / 1000) * (TICKS_PER_SECOND + this.additionalTickAmount));
+            let newTick = this.startTick + Math.ceil((someParam / 1000) * (TICKS_PER_SECOND + this.additionalTickAmount));
 
             if (newTick !== this.currentTick) {
                 this._beegDataStore.onTickUpdate(this.currentTick);
                 this._cardDataStore.onTickUpdate(this.currentTick);
+                this._combatStore.onTickUpdate(this.currentTick);
             }
 
             this.currentTick = newTick;

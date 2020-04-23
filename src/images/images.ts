@@ -90,12 +90,42 @@ const sky_rune = require('./gathering/sky_rune.png');
 const stone_rune = require('./gathering/stone_rune.png');
 const water_rune = require('./gathering/water_rune.png');
 
+// --
+
+// skill icons
 const icon_combat = require('./icons/icon_combat.png');
 const icon_craft = require('./icons/icon_craft.png');
 const icon_explore = require('./icons/icon_explore.png');
 const icon_gather = require('./icons/icon_gather.png');
 const icon_settings = require('./icons/icon_settings.png');
 const icon_store = require('./icons/icon_store.png');
+
+// --
+
+// combat
+const BAT = require('./combat/v1_BAT.png');
+const BUNNY = require('./combat/v1_BUNNY.png');
+const COW = require('./combat/v1_COW.png');
+const CROC = require('./combat/v1_CROC.png');
+const DOVE = require('./combat/v1_DOVE.png');
+const FARMER = require('./combat/v1_FARMER.png');
+const FARM_BG = require('./combat/v1_FARM_BG.png');
+const GHOST = require('./combat/v1_GHOST.png');
+const GHOUL = require('./combat/v1_GHOUL.png');
+const GOAT = require('./combat/v1_GOAT.png');
+const GRAVE_BG = require('./combat/v1_GRAVE_BG.png');
+const MUTATED_FISH = require('./combat/v1_MUTATED_FISH.png');
+const PUMPKIN = require('./combat/v1_PUMPKIN.png');
+const RAT = require('./combat/v1_RAT.png');
+const SCARECROW = require('./combat/v1_SCARECROW.png');
+const SEWER_BG = require('./combat/v1_SEWER_BG.png');
+const SKELE = require('./combat/v1_SKELE.png');
+const SNAKE = require('./combat/v1_SNAKE.png');
+const SPIDER = require('./combat/v1_SPIDER.png');
+
+const hitsplat_1 = require('./combat/hitsplat/hitsplat_1.png');
+const hitsplat_2 = require('./combat/hitsplat/hitsplat_2.png');
+const hitsplat_3 = require('./combat/hitsplat/hitsplat_3.png');
 
 export const images = {
     beeg: beeg,
@@ -108,6 +138,34 @@ export const images = {
     x_button,
     lock,
 
+    hitsplat: {
+        hitsplat_1,
+        hitsplat_2,
+        hitsplat_3,
+    },
+    monsters: {
+        BAT,
+        BUNNY,
+        COW,
+        CROC,
+        DOVE,
+        FARMER,
+        GHOST,
+        GHOUL,
+        GOAT,
+        MUTATED_FISH,
+        PUMPKIN,
+        RAT,
+        SCARECROW,
+        SKELE,
+        SNAKE,
+        SPIDER,
+    },
+    combatBG: {
+        GRAVE_BG,
+        SEWER_BG,
+        FARM_BG,
+    },
     icons: {
         icon_combat,
         icon_craft,

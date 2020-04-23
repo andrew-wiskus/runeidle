@@ -195,6 +195,20 @@ h5 {
     font-weight: bolder !important;
 }
 
+.hover-opacity-dark > img:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.hover-opacity-dark:hover {
+    background-color: red;
+}
+.hover-opacity-dark,
+img {
+    cursor: pointer;
+    opacity: 1;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .hide-scrollbar::-webkit-scrollbar {
     display: none;

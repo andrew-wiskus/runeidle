@@ -8,6 +8,7 @@ import { InventoryPanel } from 'screens/Inventory/InventoryPanel';
 import { Chat } from 'screens/Chat/Chat';
 import { ProductionPanel } from 'screens/ProductionPanel/ProductionPanel';
 import { WindowStore, WindowType } from 'data/WindowStore';
+import { CombatPanel } from 'screens/Combat/CombatPanel';
 
 interface Props {
     gameTickStore?: GameTickStore;
@@ -32,6 +33,8 @@ export class HomeScreen extends React.Component<Props, State> {
                     </div>
 
                     {this.props.windowStore!.activeWindow == WindowType.GATHER && <ProductionPanel />}
+
+                    {this.props.windowStore!.activeWindow == WindowType.COMBAT && <CombatPanel />}
                 </div>
 
                 <Chat />
