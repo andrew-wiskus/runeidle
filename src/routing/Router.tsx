@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { HomeScreen } from 'screens/HomeScreen/HomeScreen';
+import { RRHomePage } from 'RR/RRHomePage';
 
 interface Props {}
 
@@ -9,6 +9,6 @@ interface State {
 
 export class Router extends React.Component<Props, State> {
     public render(): JSX.Element {
-        return <HomeScreen />;
+        return <RRHomePage />;
     }
 }
