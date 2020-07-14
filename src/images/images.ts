@@ -1,3 +1,5 @@
+import { CombatLocation } from 'models/CombatLocation';
+
 const beeg = require('./beeg_v2.png');
 const happy_icon = require('./happiness_icon.png');
 const health_icon = require('./health_icon.png');
@@ -261,3 +263,18 @@ export const images = {
         water_rune,
     },
 };
+
+// util sorting
+
+export function getMonsterBackground(forLocation: CombatLocation) {
+    switch (forLocation) {
+        case CombatLocation.GRAVE:
+            return images.combatBG.GRAVE_BG;
+        case CombatLocation.FARM:
+            return images.combatBG.FARM_BG;
+        case CombatLocation.SEWER:
+            return images.combatBG.SEWER_BG;
+        default:
+            throw Error("You haven't implemented a bg for this combat yet dawg, but good on you for expanding");
+    }
+}

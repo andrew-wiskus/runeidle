@@ -1,19 +1,7 @@
 import { observable } from 'mobx';
-import { monsters } from './_all_monsters';
+import { Monster, monsters } from './_all_monsters';
 import { getRandomFromArray, waitForSeconds } from 'util_functions';
-
-export enum CombatLocation {
-    FARM,
-    SEWER,
-    GRAVE,
-}
-
-export interface Monster {
-    name: string;
-    maxHealth: number;
-    currentHealth: number;
-    image: any;
-}
+import { CombatLocation } from 'models/CombatLocation';
 
 export class CombatStore {
     @observable public currentLocation: CombatLocation = CombatLocation.FARM;
@@ -31,11 +19,9 @@ export class CombatStore {
     public setStartTick(tick: number) {
         this.startTick = tick;
     }
-    private attackAnimationCallback: (damage: number) => void = () => {
-        throw Error('This has not been set');
-    };
+    private attackAnimationCallback: (damage: number) => void = () => {};
     private monsterAnimationOnDeathCallback: () => number = () => {
-        throw Error('This has not been set');
+        return -1;
     };
 
     public changeLocation(location: CombatLocation) {
@@ -78,22 +64,11 @@ export class CombatStore {
     }
 
     public getNewActiveMonster() {
-        let monsterArray: Monster[] = [];
-        let location = this.currentLocation;
+        let allMonsters = Object.keys(monsters).map((key) => {
+            return monsters[key];
+        });
 
-        switch (location) {
-            case CombatLocation.FARM:
-                monsterArray = [monsters.COW, monsters.SCARECROW, monsters.FARMER, monsters.GOAT, monsters.BUNNY, monsters.DOVE];
-                break;
-            case CombatLocation.SEWER:
-                monsterArray = [monsters.SPIDER, monsters.CROC, monsters.MUTATED_FISH, monsters.SNAKE, monsters.RAT];
-                break;
-            case CombatLocation.GRAVE:
-                monsterArray = [monsters.GHOST, monsters.BAT, monsters.SKELE, monsters.PUMPKIN, monsters.GHOUL];
-
-                break;
-        }
-
+        let monsterArray: Monster[] = allMonsters.filter((monster) => monster.location == this.currentLocation);
         this.currentMonster = { ...getRandomFromArray(monsterArray) } as Monster;
     }
 }
