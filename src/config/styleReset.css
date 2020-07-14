@@ -218,3 +218,15 @@ img {
 .hide-scrollbar {
     -ms-overflow-style: none;
 }
+
+.dog-listing {
+    max-width: 450px;
+    width: 100%;
+    position: 'relative';
+}
+
+.dog-listing:after {
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+}
