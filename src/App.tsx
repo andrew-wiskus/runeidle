@@ -3,11 +3,14 @@ import { CssStyleSheet } from './config/types/Style';
 import './config/styleReset.css';
 import { Provider } from 'mobx-react';
 import { Router } from 'routing/Router';
+import { GameTickStore } from 'data/GameTickStore';
+
+const gameTickStore = new GameTickStore();
 
 export class App extends React.Component {
     public render(): JSX.Element {
         return (
-            <Provider>
+            <Provider gameTickStore={gameTickStore}>
                 <div style={styles.container}>
                     <Router />
                 </div>
