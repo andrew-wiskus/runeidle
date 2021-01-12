@@ -1,7 +1,7 @@
 import { observable } from 'mobx';
 import { SaveData } from './SaveData';
 
-const TICKS_PER_SECOND = 30;
+const TICKS_PER_SECOND = 1000;
 const TICK_INCREMENT_TO_RUN_SAVE = 1000;
 
 export class GameTickStore {
