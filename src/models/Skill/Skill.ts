@@ -33,7 +33,30 @@ export class Skill {
 export const SKILLS = (id: SkillID) => {
 
     let config = {
-        [SkillID.WOODWORKING]: new Skill(SkillID.WOODWORKING, 'Wood Working')
+        [SkillID.FLETCHING         ]:   new Skill(SkillID.FLETCHING, 'Wood Working'),
+        [SkillID.WOODCUTTING       ]:   new Skill(SkillID.WOODCUTTING, 'Wood Cutting'),
+        [SkillID.MINING            ]:   new Skill(SkillID.MINING, 'Mining'),
+        [SkillID.SMITHING          ]:   new Skill(SkillID.SMITHING, 'Smithing'),
+        [SkillID.FISHING           ]:   new Skill(SkillID.FISHING, 'Fishing'),
+        [SkillID.CRAFTING          ]:   new Skill(SkillID.CRAFTING, 'Crafting'),
+        [SkillID.GATHERING         ]:   new Skill(SkillID.GATHERING, 'Gathering'),
+        [SkillID.FIREMAKING        ]:   new Skill(SkillID.FIREMAKING, 'Firemaking'),
+        [SkillID.COOKING           ]:   new Skill(SkillID.COOKING, 'Cooking'),
+        [SkillID.RUNECRAFTING      ]:   new Skill(SkillID.RUNECRAFTING, 'Runecrafting'),
+        [SkillID.DIVINATION        ]:   new Skill(SkillID.DIVINATION, 'Divination'),
+        [SkillID.CONSTRUCTION      ]:   new Skill(SkillID.CONSTRUCTION, 'Construction'),
+        [SkillID.THIEVING          ]:   new Skill(SkillID.THIEVING, 'Thieving'),
+        [SkillID.POTION_MAKING     ]:   new Skill(SkillID.POTION_MAKING, 'Potion Making'),
+        [SkillID.INVENTION         ]:   new Skill(SkillID.INVENTION, "Invention"),
+        [SkillID.ENCHANTING        ]:   new Skill(SkillID.ENCHANTING, "Enchanting"),
+        [SkillID.HUNTING           ]:   new Skill(SkillID.HUNTING, "Hunting"),
+        [SkillID.WEAVING           ]:   new Skill(SkillID.WEAVING, "Weaving"),
+        [SkillID.LEATHER_WORKING   ]:   new Skill(SkillID.LEATHER_WORKING, "Leather Working"),
+        [SkillID.AGILITY           ]:   new Skill(SkillID.AGILITY, "Agility Training"),
+        [SkillID.HOLY              ]:   new Skill(SkillID.HOLY, "Holy"),
+        [SkillID.CURSE             ]:   new Skill(SkillID.CURSE, "Curse"),
+        [SkillID.FARMING           ]:   new Skill(SkillID.FARMING, "Farming"),
+        [SkillID.RANGED            ]:   new Skill(SkillID.RANGED, "Ranged"),
     }
 
     return config[id]

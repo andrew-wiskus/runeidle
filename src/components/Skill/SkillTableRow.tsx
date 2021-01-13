@@ -11,20 +11,47 @@ export class SkillTableRow extends React.Component<{ production: SkillProduction
 					<div style={{ width: `90%`, position: 'relative', height: `100%`, backgroundColor: 'blue' }}>
 						<div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: `33%`, backgroundColor: 'green' }} />
 						<div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, right: 0, display: 'flex', justifyContent: 'center', alignItems: `center` }}>
-							<p style={{ color: 'white' }}>{production.outputName}</p>
+							<p style={{ color: 'white' }}>{production.productionName}</p>
 						</div>
 					</div>
 				</div>
 
 				<div style={styles.rowText}>{production.ticksToComplete}</div>
 				<div style={styles.rowText}>
-					{production.requiredResourceName} ({production.requiredResourceAmount})
+					{production.requiredItem.length !== 0 ? (
+						<div>
+							{production.requiredItem.map(item => {
+							return <>{item.item.name} ({item.amount})<br/></>
+							})}
+						</div>
+					) : (
+						<div>{'n/a'}</div>
+					)}
 				</div>
-				<div style={styles.rowText}>{production.amountPerOutput}</div>
-				<div style={styles.rowText}>{production.xpPerOutput}</div>
+				<div style={styles.rowText}>
+				{production.outputItem.length !== 0 ? (
+						<div>
+							{production.outputItem.map(item => {
+							return <>{item.item.name} ({item.amount})<br/></>
+							})}
+						</div>
+					) : (
+						<div>{'n/a'}</div>
+					)}
+				</div>
+				<div style={styles.rowText}>
+				{production.xpPerOutput.length !== 0 ? (
+						<div>
+							{production.xpPerOutput.map(xp => {
+							return <>{xp.skill} ({xp.amount})<br/></>
+							})}
+						</div>
+					) : (
+						<div>{'n/a'}</div>
+					)}
+				</div>
 				<div style={styles.rowText}>200/1000 {/* get from data store by passing skill_prod.id */}</div>
 				<div style={styles.rowText}>47 {/* get from data store by passing skill_prod.id */}</div>
-				<div style={styles.rowText}>99 {/* get from data store by passing skill_prod.id */}</div>
 			</div>
 		);
 	}
