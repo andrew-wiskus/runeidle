@@ -4,25 +4,31 @@ import './config/styleReset.css';
 import { Provider } from 'mobx-react';
 import { Router } from 'routing/Router';
 import { GameTickStore } from 'data/GameTickStore';
+import { ProductionStore } from 'data/ProductionStore';
+import { InventoryStore } from 'data/InventoryStore';
+import { LevelStore } from 'data/LevelStore';
 
-const gameTickStore = new GameTickStore();
+const inventoryStore = new InventoryStore();
+const levelStore = new LevelStore();
+const productionStore = new ProductionStore(inventoryStore, levelStore);
+const gameTickStore = new GameTickStore(productionStore, levelStore, inventoryStore);
 
 export class App extends React.Component {
-    public render(): JSX.Element {
-        return (
-            <Provider gameTickStore={gameTickStore}>
-                <div style={styles.container}>
-                    <Router />
-                </div>
-            </Provider>
-        );
-    }
+	public render(): JSX.Element {
+		return (
+			<Provider gameTickStore={gameTickStore} productionStore={productionStore} inventoryStore={inventoryStore} levelStore={levelStore}>
+				<div style={styles.container}>
+					<Router />
+				</div>
+			</Provider>
+		);
+	}
 }
 
 const styles: CssStyleSheet = {
-    container: {
-        backgroundColor: 'white',
-        height: `100vh`,
-        width: `100vw`,
-    },
+	container: {
+		backgroundColor: 'black',
+		height: `100vh`,
+		width: `100vw`
+	}
 };

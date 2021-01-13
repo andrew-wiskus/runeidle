@@ -230,3 +230,16 @@ img {
     display: block;
     padding-bottom: 100%;
 }
+
+* {
+    font-family: 'Courier New', Courier, monospace !important;
+    color: white;
+}
+
+h1 {
+    color: white
+}
+
+p {
+    color: white
+}

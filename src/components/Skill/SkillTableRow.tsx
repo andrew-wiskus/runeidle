@@ -1,15 +1,33 @@
+import { ProductionStore } from 'data/ProductionStore';
+import { LevelXP } from 'data/_level_xp';
+import { inject, observer } from 'mobx-react';
 import { SkillProduction } from 'models/Skill/SkillProductions';
 import React from 'react';
+import { getLevelFromEXP } from 'util_functions';
 
-export class SkillTableRow extends React.Component<{ production: SkillProduction }, {}> {
+@inject('productionStore')
+@observer
+export class SkillTableRow extends React.Component<{ production: SkillProduction, productionStore?: ProductionStore }, {}> {
 	public render() {
-		let production = this.props.production;
+
+		if(this.props.productionStore!.productions.length == 0) {
+			return <div/>
+		}
+
+		let production = this.props.productionStore!.productions.find(x => x.id == this.props.production.id)!;
+
+		if(production == undefined) {
+			console.error("couldnt find production?  -- " + this.props.production.id)
+			return <div/>
+		}
+
+		let percentFinished = ((production.currentTick / production.ticksToComplete) * 100) + "%"
 
 		return (
-			<div style={{ display: 'flex', flexDirection: 'row', width: `100%`, height: 50, border: '1px solid black', margin: '10px 0 10px 0px' }}>
+			<div onClick={() => this.props.productionStore!.setActiveTask(production.id)} style={{ display: 'flex', flexDirection: 'row', width: `100%`, height: 50, border: '1px solid black', margin: '10px 0 10px 0px' }}>
 				<div style={styles.rowText}>
 					<div style={{ width: `90%`, position: 'relative', height: `100%`, backgroundColor: 'blue' }}>
-						<div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: `33%`, backgroundColor: 'green' }} />
+						<div style={{ position: 'absolute', top: 2, left: 2, bottom: 2, width: `calc(${percentFinished} - 2px)`, backgroundColor: '#330066' }} />
 						<div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, right: 0, display: 'flex', justifyContent: 'center', alignItems: `center` }}>
 							<p style={{ color: 'white' }}>{production.productionName}</p>
 						</div>
@@ -50,8 +68,10 @@ export class SkillTableRow extends React.Component<{ production: SkillProduction
 						<div>{'n/a'}</div>
 					)}
 				</div>
-				<div style={styles.rowText}>200/1000 {/* get from data store by passing skill_prod.id */}</div>
-				<div style={styles.rowText}>47 {/* get from data store by passing skill_prod.id */}</div>
+				<div style={styles.rowText}>{
+					production.currentXP + "/" + LevelXP[getLevelFromEXP(production.currentXP)]
+				}</div>
+				<div style={styles.rowText}>{getLevelFromEXP(production.currentXP)}</div>
 			</div>
 		);
 	}

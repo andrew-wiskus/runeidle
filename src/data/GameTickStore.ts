@@ -1,24 +1,35 @@
 import { observable } from 'mobx';
+import { Item } from 'models/Item/ItemConfig';
+import { InventoryStore } from './InventoryStore';
+import { LevelStore } from './LevelStore';
+import { ProductionStore } from './ProductionStore';
 import { SaveData } from './SaveData';
 
-const TICKS_PER_SECOND = 1000;
-const TICK_INCREMENT_TO_RUN_SAVE = 1000;
+const TICKS_PER_SECOND = 2000;
+const TICK_INCREMENT_TO_RUN_SAVE = 5;
 
 export class GameTickStore {
     @observable public currentTick = 0;
 
     private additionalTickAmount = 0;
     private startTick = 0;
+    private levelStore: LevelStore;
+    private inventoryStore: InventoryStore;
+    private productionStore: ProductionStore;
 
     public setTickAdditionalIncrement(amount: number) {
         this.additionalTickAmount += amount;
     }
 
-    public constructor() {
+    public constructor(productionStore: ProductionStore, levelStore: LevelStore, inventoryStore: InventoryStore) {
         let savedTickData = SaveData.loadTickData();
         this.startTick = savedTickData.lastSavedTick;
 
-        this.startGameTickLoop();
+        this.startGameTickLoop(productionStore.onGameTick);
+
+        this.productionStore = productionStore;
+        this.inventoryStore = inventoryStore;
+        this.levelStore = levelStore;
     }
 
     private checkToSaveTickData = (tick: number) => {
@@ -26,15 +37,23 @@ export class GameTickStore {
             SaveData.saveTickData({
                 lastSavedTick: this.currentTick,
             });
+
+            this.levelStore.saveData();
+            this.inventoryStore.saveData();
+            this.productionStore.saveData();
         }
     };
 
-    private startGameTickLoop() {
+    private startGameTickLoop(productionStoreOnTick: (tick: number) => void) {
         const callback = (someParam: number) => {
+
+            // TODO: Throttle this?
+
             let newTick = this.startTick + Math.ceil((someParam / 1000) * (TICKS_PER_SECOND + this.additionalTickAmount));
 
             if (newTick !== this.currentTick) {
                 // on tick update
+                productionStoreOnTick(newTick - this.currentTick)
             }
 
             this.currentTick = newTick;

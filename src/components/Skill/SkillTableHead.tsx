@@ -1,12 +1,19 @@
+import { LevelStore } from 'data/LevelStore';
+import { inject, observer } from 'mobx-react';
 import { Skill } from 'models/Skill/Skill';
 import React from 'react';
+import { getLevelFromEXP } from 'util_functions';
 
-export class SkillTableHead extends React.Component<{ skill: Skill }> {
+@inject('levelStore')
+@observer
+export class SkillTableHead extends React.Component<{ skill: Skill; levelStore?: LevelStore }> {
 	public render() {
+		let level = this.props.levelStore!.getLevelFor(this.props.skill.id);
+
 		return (
 			<div style={{ marginTop: 40 }}>
 				<h1 style={{ fontSize: 22, marginBottom: 10 }}>
-					{this.props.skill.name} -- Level: {this.props.skill.currentLevel}
+					{this.props.skill.name} -- Level: {level}
 				</h1>
 				<div style={{ display: 'flex', flexDirection: 'row', width: `100%`, height: 20 }}>
 					<div style={styles.rowText}>Production</div>
