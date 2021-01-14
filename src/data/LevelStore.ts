@@ -1,5 +1,5 @@
-import { action, computed, observable } from "mobx";
-import { Skill, GET_SKILL_CONFIG_FOR_ID, SKILL_CONFIG } from "models/Skill/Skill";
+import { action,  observable } from "mobx";
+import { Skill,  SKILL_CONFIG } from "models/Skill/Skill";
 import { SkillID } from "models/Skill/Skill_ID";
 import { getLevelFromEXP } from "util_functions";
 
@@ -16,15 +16,12 @@ export class LevelStore {
 
     @action
     public addXPToSkill(id: SkillID, xp: number) {
-        let index = this.skills.findIndex(x => x.id == id) 
-        console.log(index)
+        let index = this.skills.findIndex(x => x.id === id) 
         this.skills[index].currentXP += xp;
-        console.log(this.skills[index].currentXP)
     }
     
     public getLevelFor(id: SkillID) {
-        console.log(this.skills.find(x => x.id == id)!.currentXP)
-        return getLevelFromEXP(this.skills.find(x => x.id == id)!.currentXP / 5)
+        return getLevelFromEXP(this.skills.find(x => x.id === id)!.currentXP / 5)
     }
 
     public loadData() {
@@ -32,6 +29,7 @@ export class LevelStore {
         // run `addXPtoSkill`
         this.skills.forEach(skill => {
             let xp = localStorage.getItem('xp_' + skill.id)
+             // eslint-disable-next-line
             if(xp != undefined) {
                 this.addXPToSkill(skill.id, parseInt(xp))
             }

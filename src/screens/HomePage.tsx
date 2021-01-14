@@ -1,4 +1,4 @@
-import { Inventory } from 'components/Skill/Inventory/Inventory';
+import { Inventory } from 'components/Inventory/Inventory';
 import { SkillTable } from 'components/Skill/SkillTable';
 import { GameTickStore } from 'data/GameTickStore';
 import { inject, observer } from 'mobx-react';

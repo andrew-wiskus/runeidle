@@ -1,5 +1,4 @@
 import { observable } from 'mobx';
-import { Item } from 'models/Item/ItemConfig';
 import { InventoryStore } from './InventoryStore';
 import { LevelStore } from './LevelStore';
 import { ProductionStore } from './ProductionStore';

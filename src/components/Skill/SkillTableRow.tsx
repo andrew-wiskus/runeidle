@@ -10,13 +10,13 @@ import { getLevelFromEXP } from 'util_functions';
 export class SkillTableRow extends React.Component<{ production: SkillProduction, productionStore?: ProductionStore }, {}> {
 	public render() {
 
-		if(this.props.productionStore!.productions.length == 0) {
+		if(this.props.productionStore!.productions.length === 0) {
 			return <div/>
 		}
 
-		let production = this.props.productionStore!.productions.find(x => x.id == this.props.production.id)!;
+		let production = this.props.productionStore!.productions.find(x => x.id === this.props.production.id)!;
 
-		if(production == undefined) {
+		if(production === undefined) {
 			console.error("couldnt find production?  -- " + this.props.production.id)
 			return <div/>
 		}

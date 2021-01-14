@@ -2,7 +2,6 @@ import { LevelStore } from 'data/LevelStore';
 import { inject, observer } from 'mobx-react';
 import { Skill } from 'models/Skill/Skill';
 import React from 'react';
-import { getLevelFromEXP } from 'util_functions';
 
 @inject('levelStore')
 @observer

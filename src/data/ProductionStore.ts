@@ -25,9 +25,9 @@ export class ProductionStore {
     }
 
     private incrementProductionTickCount(forID: string, tickDelta: number) {
-        let production = this.productions.find(x => x.id == forID)!
-        if(forID == '') { return; } // no active task
-        if(production == null) { throw Error ("trying to update tick count for item that doesnt exist: (" + forID + ")")}
+        let production = this.productions.find(x => x.id === forID)!
+        if(forID === '') { return; } // no active task
+        if(production === null) { throw Error ("trying to update tick count for item that doesnt exist: (" + forID + ")")}
 
         production.currentTick += tickDelta;
         this.checkForProductionComplete(production);
@@ -46,9 +46,11 @@ export class ProductionStore {
         for(var i = 0; i < amountCompleted; i++) {
 
             let required_error = `You do not have the required items!\n`
+
+             // eslint-disable-next-line
             production.requiredItem.forEach(required => {
                 let success = this.inventoryStore.removeItem(required.item, required.amount)
-                if(success == false) {
+                if(success === false) {
                     this.activeTaskID = '';
                     required_error += `- ${required.item.name}: ${required.amount}\n`
                     production.currentTick = 0;
@@ -70,7 +72,7 @@ export class ProductionStore {
         // adds items
         // adds xp for production
         // adds xp for skill
-        for(var i = 0; i < amountCompleted; i++) {
+        for(var j = 0; j < amountCompleted; j++) {
             this.onProductionComplete(production)
         }
         //end;
@@ -80,7 +82,7 @@ export class ProductionStore {
     }
 
     private onProductionComplete = (production: SkillProduction) => {
-        let index = this.productions.findIndex(x => x.id == production.id)!
+        let index = this.productions.findIndex(x => x.id === production.id)!
         this.productions[index].xpPerOutput.forEach(output => {
             this.productions[index].currentXP += output.amount;
             this.levelStore.addXPToSkill(output.skill, output.amount)
