@@ -1,10 +1,11 @@
 import { observable } from 'mobx';
+import { ITEMS } from 'models/Item/ItemConfig';
 import { InventoryStore } from './InventoryStore';
 import { LevelStore } from './LevelStore';
 import { ProductionStore } from './ProductionStore';
 import { SaveData } from './SaveData';
 
-const TICKS_PER_SECOND = 2000;
+const TICKS_PER_SECOND = 3000;
 const TICK_INCREMENT_TO_RUN_SAVE = 5;
 
 export class GameTickStore {

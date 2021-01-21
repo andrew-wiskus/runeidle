@@ -47,6 +47,10 @@ export class ProductionStore {
 
             let required_error = `You do not have the required items!\n`
 
+            // TODO: Check inventory for ALL items and then remove them..
+            //       currently, it'll remove the first 2 item sets and then fail on the third..
+            //       so check them all AND THEN remove them.
+
              // eslint-disable-next-line
             production.requiredItem.forEach(required => {
                 let success = this.inventoryStore.removeItem(required.item, required.amount)
@@ -91,8 +95,6 @@ export class ProductionStore {
         production.outputItem.forEach(output => {
             this.inventoryStore.addItem(output.item, output.amount)
         })
-
-        // ADD XP COMPLETE FOR TOP LEVEL SKILL
     }
 
     public onGameTick = (tickDelta: number) => {

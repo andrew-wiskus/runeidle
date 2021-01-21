@@ -35,6 +35,21 @@ export class InventoryStore {
         return true;
     }
 
+    public checkIfInventoryHasItemCount(items: {item: Item, amount: number}[]) {
+
+        let hasCount = true;
+
+        for(var i = 0; i < items.length; i++) {
+            let index= this.inventory.findIndex(inv_item => inv_item.item.id === items[i].item.id)
+            let isValid = !(index === -1 || this.inventory[index].amount < items[i].amount)
+            if(isValid == false) {
+                hasCount = false;
+            }
+        }
+
+        return hasCount;
+    }
+
     public saveData() {
         Object.keys(ITEMS).forEach(key => {
             let item = this.inventory.find(x => x.item.id === ITEMS[key].id)

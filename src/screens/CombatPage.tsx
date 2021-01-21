@@ -8,6 +8,7 @@ export class CombatPage extends React.Component {
 	public render() {
 		return (
 			<div style={{ width: `100vw`, height: `100%`, paddingTop: 100, display: 'flex', flexDirection: 'row' }}>
+				<h1 style={{fontSize: 35, fontWeight: 'lighter', textAlign: 'center', marginTop: 200, marginLeft: 50}}>coming soon.. map exploration and combat :)</h1>
 				<div style={{ display: 'flex', flexDirection: 'row', width: `100vw` }}>
 					{/* <div style={{ display: 'flex', width: `30%`, border: '1px solid green', paddingLeft: 60, paddingTop: 50 }}>
 						<h1 style={{ fontSize: 22 }}> Combat Inventory </h1>
